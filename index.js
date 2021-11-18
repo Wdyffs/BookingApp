@@ -1,13 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express()
 
 async function start() {
   try {
-    await mongoose.connect('mongodb+srv://kiryl_sandryhaila:1q2w3e4r@cinema.bu0eo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+    await mongoose.connect(process.env.BA_DB_URI, {
+      useNewUrlParser: true
     })
 
     app.listen(PORT, () => {
@@ -19,3 +21,4 @@ async function start() {
   }
 }
 
+start()
