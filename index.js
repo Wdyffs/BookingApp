@@ -1,10 +1,10 @@
-const express = require('express')
-const mongoose = require('mongoose')
+const express = require('express');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 
-const app = express()
+const app = express();
 
 
 async function start() {
@@ -14,11 +14,11 @@ async function start() {
     })
 
     app.listen(PORT, () => {
-      console.log(`Server has been started on port ${PORT}`)
+      console.log(`Server has been started on port ${PORT}`);
     })
 
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
 

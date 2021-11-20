@@ -11,6 +11,10 @@ const actorSchema = new mongoose.Schema({
   }
 })
 
+actorSchema
+  .virtual('name')
+  .get(() => `${this.firstName} ${this.lastName}`)
+
 const Actor = mongoose.model('Actor', actorSchema)
 
 module.exports = Actor
