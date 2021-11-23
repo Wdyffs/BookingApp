@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 
-const cityScheme = new mongoose.Schema({
+const citySchema = new mongoose.Schema({
   name: {
     type: String,
-    enum: ['Minsk', 'Gomel', 'Brest', 'Mogilev', 'Vitebsk', 'Grodno'],
     required: true
   },
   countryId: {
