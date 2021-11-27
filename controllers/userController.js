@@ -1,14 +1,22 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const { check, validationResult } = require('express-validator')
+const jwt = require('jsonwebtoken')
+require('dotenv').config();
 
-exports.validation = [
+// Different Validations
+exports.validationRegisterUser = [
   check('email', 'Email is not correct').isEmail(),
   check('password', 'Minimal length is 8 symbols')
     .isLength({ min: 8 })
-]
+];
 
-exports.createUser = async (req, res) => {
+exports.validationLoginUser = [
+  check('email', 'Use valid email').normalizeEmail().isEmail(),
+  check('password', 'Type a password').exists()
+]
+// ----------------------------------------------
+exports.registerUser = async (req, res) => {
   try {
     const errors = validationResult(req)
 
@@ -33,4 +41,42 @@ exports.createUser = async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: 'Something went wrong' })
   }
+}
+
+exports.loginUser = async (req, res) => {
+  try {
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.array(),
+        message: 'Incorrect data for login'
+      })
+    }
+
+    const { email, password } = req.body
+    const user = await User.findOne({ email })
+    if (!user) {
+      return res.status(400).json({ message: 'No user with this email' })
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password)
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Incorrect password try again' })
+    }
+
+    const token = await jwt.sign(
+      { userId: user.id },
+      process.env.SECRET_KEY,
+      { expiresIn: '1h' }
+    )
+
+    res.json({ token, user: user.id })
+
+  } catch (e) {
+    res.status(500).json({
+      message: 'Something went wrong'
+    })
+  }
+
 }
