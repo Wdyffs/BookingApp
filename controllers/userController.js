@@ -1,6 +1,12 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
-const { validationResult } = require('express-validator')
+const { check, validationResult } = require('express-validator')
+
+exports.validation = [
+  check('email', 'Email is not correct').isEmail(),
+  check('password', 'Minimal length is 8 symbols')
+    .isLength({ min: 8 })
+]
 
 exports.createUser = async (req, res) => {
   try {

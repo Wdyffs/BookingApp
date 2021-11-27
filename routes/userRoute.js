@@ -4,13 +4,6 @@ const userController = require('../controllers/userController')
 const { check } = require('express-validator')
 const router = express.Router()
 
-router.post(
-  '/register',
-  [
-    check('email', 'Email is not correct').isEmail(),
-    check('password', 'Minimal length is 8 symbols')
-      .isLength({ min: 8 })
-  ],
-  userController.createUser)
+router.post('/register', userController.validation, userController.createUser)
 
 module.exports = router
