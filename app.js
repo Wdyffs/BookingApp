@@ -5,6 +5,7 @@ require('dotenv').config();
 
 // Import routes
 const countryRoute = require('./routes/countryRoute')
+const userRoute = require('./routes/userRoute')
 
 
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json()) // --- ability to parse a request body
 app.use('/cinema', countryRoute) // --- register a route
+app.use('/cinema', userRoute)
 
 async function start() {
   try {
