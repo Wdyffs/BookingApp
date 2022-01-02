@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Clock } from './Clock';
+import { TextControl } from './Text';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <Clock />
+    <TextControl />
   </React.StrictMode>,
   document.getElementById('root')
 );
