@@ -53,15 +53,12 @@ export class TextControl extends React.Component {
   }
   render() {
     const isChanged = this.state.isChanged
-    let button
-    if (isChanged) {
-      button = <ChangedButton onClick={this.returnHandler} />
-    } else {
-      button = <NotChangedButton onClick={this.changeHandler} />
-    }
     return <div>
       <Presentation isChanged={isChanged} />
-      {button}
+      {isChanged
+        ? <ChangedButton onClick={this.returnHandler} />
+        : <NotChangedButton onClick={this.changeHandler} />
+      }
     </div>
   }
 
