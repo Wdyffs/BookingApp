@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Clock } from './Clock';
-import { TextControl } from './Text';
-import { List } from './List';
+import { Clock } from './Components/Clock';
+import { TextControl } from './Components/Text';
+import { List } from './Components/List';
 
 
 ReactDOM.render(
