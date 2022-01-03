@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Clock } from './Components/Clock';
 import { TextControl } from './Components/Text';
 import { List } from './Components/List';
+import { Form } from './Components/SimpleForm';
 
 
 ReactDOM.render(
@@ -14,6 +15,7 @@ ReactDOM.render(
     <Clock />
     <TextControl />
     <List numbers={[1, 2, 3, 4, 5]} />
+    <Form />
   </React.StrictMode>,
   document.getElementById('root')
 );
