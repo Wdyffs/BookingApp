@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Clock } from './Clock';
 import { TextControl } from './Text';
+import { List } from './List';
 
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
     <App />
     <Clock />
     <TextControl />
+    <List numbers={[1, 2, 3, 4, 5]} />
   </React.StrictMode>,
   document.getElementById('root')
 );
