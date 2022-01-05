@@ -1,0 +1,16 @@
+.Navigation {
+  height: 45px;
+  max-width: 363px;
+  display: flex;
+  column-gap: 42px;
+  align-items: center;
+  margin-top: 60px;
+  margin-right: 200px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: rgb(75, 70, 143);
+}
