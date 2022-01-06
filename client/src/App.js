@@ -2,6 +2,7 @@ import React from 'react'
 import { Header } from './components/Header/Header'
 import './App.css'
 import { Movies } from './components/Main/Movies/Movies'
+import { Footer } from './components/Footer/Footer'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Movies />
         {/* <Theatres /> */}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
