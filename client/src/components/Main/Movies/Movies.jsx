@@ -32,21 +32,21 @@ export const Movies = (props) => {
         </select>
       </div>
       <div className={style.movieList}>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
-        <a><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
+        <a href="1"><img className={style.movie} src="/images/Movie.png" alt="Movie" /></a>
       </div>
     </section>
   )
