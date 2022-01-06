@@ -1,18 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Roboto;
-  box-sizing: border-box;
-}
-body {
-  color: white;
-  margin: 0;
-  max-width: 100%;
-}
-
-#root {
-  width: 100%;
-  height: 774px;
-  background-color: #131828;
-  margin: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
 }

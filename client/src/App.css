@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #131828;
+  max-width: 100%;
+}
