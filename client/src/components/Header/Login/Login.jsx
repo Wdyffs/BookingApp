@@ -5,7 +5,7 @@ export const Login = () => {
   return (
     <div className={style.login}>
       <img src="/images/LoginPicture.svg" alt="Login" />
-      <p>Sign in</p>
+      <p><a href="1">Sign in</a></p>
     </div>
   )
 }
