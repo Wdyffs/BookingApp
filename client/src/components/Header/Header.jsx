@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Header.module.css"
-import { Login } from "./Login/Login";
+import { LoginIcon } from "./Login/Login";
 import { Logo } from "./Logo/Logo";
 import { NavMenu } from "./NavMenu/NavMenu";
 
@@ -9,7 +9,7 @@ export const Header = (props) => {
     <header>
       <Logo />
       <NavMenu />
-      <Login />
+      <LoginIcon />
     </header>
   )
 }

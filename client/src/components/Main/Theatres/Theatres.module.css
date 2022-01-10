@@ -1,4 +1,4 @@
-.moviesContainer {
+.theatresContainer {
   box-sizing: border-box;
   max-width: 90%;
   margin: auto;
@@ -10,7 +10,7 @@
     "title sort"
     "movieList movieList";
 }
-.movieTitle {
+.theatreTitle {
   font-size: 30px;
   grid-area: title;
 }
@@ -26,14 +26,14 @@
   grid-area: sort;
   margin-top: 5px;
 }
-.movieList {
+.theatreList {
   grid-area: movieList;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 30px;
   column-gap: 20px;
 }
-.movie {
-  max-width: 150px;
+.theatre {
+  max-width: 300px;
 }

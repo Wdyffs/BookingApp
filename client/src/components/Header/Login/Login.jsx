@@ -1,11 +1,12 @@
 import React from "react";
-import style from "./Login.module.css"
+import style from "./Login.module.css";
+import { NavLink } from "react-router-dom";
 
-export const Login = () => {
+export const LoginIcon = () => {
   return (
     <div className={style.login}>
       <img src="/images/LoginPicture.svg" alt="Login" />
-      <p><a href="1">Sign in</a></p>
+      <NavLink to="login">Sign in</NavLink>
     </div>
-  )
-}
+  );
+};
