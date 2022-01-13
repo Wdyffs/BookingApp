@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./LoginPage.module.css";
+import { Link } from "react-router-dom";
 
 export const LoginPage = (props) => {
   return (
@@ -29,13 +29,15 @@ export const LoginPage = (props) => {
           />
         </p>
         <p className={style.formField}>
-          <label for="remember" className={style.fieldName}>
+          <input type="checkbox" id="remember" className={style.checkbox} />
+          <label for="remember" className={(style.fieldName, style.remember)}>
             Remember me
           </label>
-          <input type="checkbox" id="remember" className={style.checkbox} />
-          <span>
-            <Link to="/">Forgot password?</Link>
-          </span>
+          <p className={style.forgotPassword}>
+            <Link to="/" className={style.forgotPasswordLink}>
+              Forgot password?
+            </Link>
+          </p>
         </p>
         <button type="submit" className={style.submitButton}>
           <Link to="/" className={style.submitLink}>
@@ -43,7 +45,7 @@ export const LoginPage = (props) => {
           </Link>
         </button>
         <p className={style.formFooter}>
-          New to See?
+          <span>New to See?</span>
           <Link to="register">Sign Up</Link>
         </p>
       </form>

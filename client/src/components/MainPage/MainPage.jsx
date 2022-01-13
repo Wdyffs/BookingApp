@@ -14,10 +14,6 @@ export const MainPage = (props) => {
         <Routes>
           <Route path="/" element={<Movies />} />
           <Route path="theatres" element={<Theatres />} />
-          <Route
-            path="*"
-            element={<h1 style={{ color: "red" }}>Not found</h1>}
-          />
         </Routes>
       </div>
       <Footer />

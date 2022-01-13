@@ -6,7 +6,7 @@ export const LoginIcon = () => {
   return (
     <div className={style.login}>
       <img src="/images/LoginPicture.svg" alt="Login" />
-      <NavLink to="login">Sign in</NavLink>
+      <NavLink to="auth">Sign in</NavLink>
     </div>
   );
 };
