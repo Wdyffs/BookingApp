@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Role = require("../models/role");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
@@ -34,16 +35,32 @@ exports.registerUser = async (req, res) => {
 
     const doesExists = await User.findOne({ email });
     if (doesExists)
-      throw Error(`${email} this email does already exists try another email`);
+      res.status(400).json({
+        message: `${email} this email does already exists try another email`,
+      });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    const user = new User({ email, password: hashedPassword });
+    const userRole = await Role.findOne({ value: "User" });
+    const user = new User({
+      email,
+      password: hashedPassword,
+      roles: [userRole.value],
+    });
     await user.save();
-    res.status(201).json({ message: "User has been created" });
+    res.status(201).json({ message: "User has been successfully created" });
   } catch (e) {
     res.status(500).json({ message: "Something went wrong" });
   }
+};
+
+const generateToken = (id, role) => {
+  const payload = {
+    id,
+    role,
+  };
+  return jwt.sign(payload, process.env.SECRET_KEY, {
+    expiresIn: "24h",
+  });
 };
 
 exports.loginUser = async (req, res) => {
@@ -68,11 +85,9 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Incorrect password try again" });
     }
 
-    const token = await jwt.sign({ userId: user.id }, process.env.SECRET_KEY, {
-      expiresIn: "1h",
-    });
+    const token = generateToken(user._id, user.roles);
 
-    res.json({ token, user: user.id });
+    return res.json({ token });
   } catch (e) {
     res.status(500).json({
       message: "Something went wrong",
