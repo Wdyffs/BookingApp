@@ -35,8 +35,8 @@ export const RegisterPage = (props) => {
 
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
-    if (e.target.value.length < 8 || e.target.length > 16) {
-      setPasswordError("Must be more no less than 8 letters");
+    if (e.target.value.length < 8 || e.target.value.length > 16) {
+      setPasswordError("Must be 8-16 symbols");
       if (e.target.value === "") {
         setPasswordError("Type a password");
       }
