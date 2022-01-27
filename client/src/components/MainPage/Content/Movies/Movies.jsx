@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./Movies.module.css";
+import axios from "axios";
+import Pagination from "./Pagination";
+import { fetchMovies } from "../../../../asyncActions/getMovies";
 
 export const Movies = (props) => {
+  const dispatch = useDispatch();
+  const movieList = useSelector((state) => state.movies.movies);
+  const [movies, setMovies] = useState(movieList);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage] = useState(8);
+
+  useEffect(() => setMovies(movieList), [movieList]);
+  useEffect(() => dispatch(fetchMovies()), []);
+
+  const lastMovieIndex = currentPage * moviesPerPage;
+  const firstMovieIndex = lastMovieIndex - moviesPerPage;
+  const currentMovies = movies.slice(firstMovieIndex, lastMovieIndex);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <section className={style.moviesContainer}>
+      <div></div>
       <h2 className={style.movieTitle}>Movies</h2>
       <div className={style.sortList}>
         <select className={style.selectItems}>
@@ -38,52 +58,22 @@ export const Movies = (props) => {
         </select>
       </div>
       <div className={style.movieList}>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
-        <a href="1">
-          <img className={style.movie} src="/images/Movie.png" alt="Movie" />
-        </a>
+        {currentMovies.map((movie) => (
+          <div className={style.movieItem}>
+            <img
+              className={style.movieImage}
+              src="/images/Movie.png"
+              alt="Movie"
+            />
+            <p className={style.movieName}>{movie.title}</p>
+          </div>
+        ))}
       </div>
+      <Pagination
+        moviesPerPage={moviesPerPage}
+        totalMovies={movies.length}
+        paginate={paginate}
+      />
     </section>
   );
 };

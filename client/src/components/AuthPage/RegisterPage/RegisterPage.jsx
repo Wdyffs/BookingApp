@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./RegisterPage.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const RegisterPage = (props) => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,16 @@ export const RegisterPage = (props) => {
   const [emailError, setEmailError] = useState("Type an email");
   const [passwordError, setPasswordError] = useState("Type a password");
   const [formValid, setFormValid] = useState(false);
+
+  const registerUser = (email, password) => {
+    axios
+      .post("http://localhost:5000/api/auth/register", {
+        email,
+        password,
+      })
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e.message));
+  };
 
   useEffect(() => {
     if (emailError || passwordError) {
@@ -109,6 +120,7 @@ export const RegisterPage = (props) => {
           type="submit"
           className={style.submitButton}
           disabled={!formValid}
+          onClick={() => registerUser(email, password)}
         >
           <Link to="/" className={style.submitLink}>
             Sign up
