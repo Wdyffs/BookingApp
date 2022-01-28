@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
-const Role = require("./models/role");
 
 // Import routes
 const countryRoute = require("./routes/countryRoute");
 const userRoute = require("./routes/userRoute");
 const movieRoute = require("./routes/movieRoute");
+const cinemasRoute = require("./routes/cinemaRoute");
 
 const PORT = process.env.PORT || 3000;
 
@@ -23,7 +23,8 @@ app.use(
   })
 );
 app.use("/movie", movieRoute);
-app.use("/cinema", countryRoute); // --- register a route
+app.use("/country", countryRoute); // --- register a route
+app.use("/cinema", cinemasRoute);
 app.use("/api/auth", userRoute);
 
 async function start() {
@@ -31,6 +32,7 @@ async function start() {
     await mongoose
       .connect(process.env.BA_DB_URI, {
         useNewUrlParser: true,
+        useUnifiedTopology: true,
       })
       .then(() => console.log("Connected to MongoDB"));
 
