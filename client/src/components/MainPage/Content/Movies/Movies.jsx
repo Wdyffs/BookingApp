@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Movies.module.css";
 import axios from "axios";
 import Pagination from "./Pagination";
 import { fetchMovies } from "../../../../asyncActions/getMovies";
+import MovieItem from "./MovieItem/MovieItem";
 
 export const Movies = (props) => {
   const dispatch = useDispatch();
@@ -59,14 +61,7 @@ export const Movies = (props) => {
       </div>
       <div className={style.movieList}>
         {currentMovies.map((movie) => (
-          <div className={style.movieItem}>
-            <img
-              className={style.movieImage}
-              src="/images/Movie.png"
-              alt="Movie"
-            />
-            <p className={style.movieName}>{movie.title}</p>
-          </div>
+          <MovieItem movie={movie} />
         ))}
       </div>
       <Pagination

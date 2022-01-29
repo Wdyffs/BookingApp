@@ -17,7 +17,8 @@ class cinemasController {
   }
   async getCinemas(req, res, next) {
     try {
-      res.json("Cinemas is ready");
+      const cinemas = await cinemaService.getCinemas();
+      res.status(200).json({ cinemas: cinemas });
     } catch (e) {
       res.status(500);
     }

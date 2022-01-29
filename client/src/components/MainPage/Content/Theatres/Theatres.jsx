@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./Theatres.module.css";
+import { fetchCinemas } from "../../../../asyncActions/getCinemas";
 
 export const Theatres = (props) => {
+  const dispatch = useDispatch();
+  const cinemaList = useSelector((state) => state.cinemas.cinemas);
+  const [cinemas, setCinemas] = useState(cinemaList);
+
+  useEffect(() => setCinemas(cinemaList), [cinemaList]);
+  useEffect(() => dispatch(fetchCinemas()), []);
+
   return (
     <section className={style.theatresContainer}>
       <h2 className={style.theatreTitle}>Movies</h2>
@@ -27,66 +36,18 @@ export const Theatres = (props) => {
         </select>
       </div>
       <div className={style.theatreList}>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/FalconClub.png"
-              alt="Falcon Club"
-            />
-          </a>
-          <h3>Falcon Club</h3>
-        </div>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/Belarus.png"
-              alt="Belarus Cinema"
-            />
-          </a>
-          <h3>Belarus Cinema</h3>
-        </div>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/ArtCinema.png"
-              alt="ArtCinema"
-            />
-          </a>
-          <h3>Art Cinema</h3>
-        </div>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/FalconClub.png"
-              alt="Falcon Club"
-            />
-          </a>
-          <h3>Falcon Club</h3>
-        </div>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/FalconClub.png"
-              alt="Falcon Club"
-            />
-          </a>
-          <h3>Falcon Club</h3>
-        </div>
-        <div className={style.theatreItem}>
-          <a href="1">
-            <img
-              className={style.theatre}
-              src="/images/FalconClub.png"
-              alt="Falcon Club"
-            />
-          </a>
-          <h3>Falcon Club</h3>
-        </div>
+        {cinemas.map((cinema) => (
+          <div className={style.theatreItem}>
+            <a href="1">
+              <img
+                className={style.theatre}
+                src={cinema.imageUrl}
+                alt="Falcon Club"
+              />
+            </a>
+            <h3>{cinema.name}</h3>
+          </div>
+        ))}
       </div>
     </section>
   );

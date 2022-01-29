@@ -18,5 +18,13 @@ class cinemaService {
   async updateCinema(id) {
     return;
   }
+  async getCinemas() {
+    try {
+      const cinemas = await CinemaModel.find();
+      return cinemas;
+    } catch (e) {
+      return e.message;
+    }
+  }
 }
 module.exports = new cinemaService();

@@ -41,9 +41,6 @@
   row-gap: 50px;
   /* column-gap: 70px; */
 }
-.movieImage {
-  min-width: 230px;
-}
 Pagination {
   grid-area: pagination;
 }

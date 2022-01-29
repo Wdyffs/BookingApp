@@ -1,4 +1,3 @@
-import axios from "axios";
 import api from "../http";
 import { getMovies } from "../redux/moviesReducer";
 

@@ -1,0 +1,11 @@
+.movieImage {
+  min-width: 230px;
+}
+.movieTitle {
+  text-align: center;
+}
+.movieLink {
+  dispaly: block;
+  height: 100%;
+  list-style: none;
+}
