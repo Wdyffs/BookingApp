@@ -1,3 +1,14 @@
 .movieContainer {
   display: flex;
 }
+.movieInfo {
+  flex-grow: 1;
+}
+.input {
+  background-color: inherit;
+  border: none;
+}
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+}
