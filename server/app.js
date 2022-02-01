@@ -5,7 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 // Import routes
-const countryRoute = require("./routes/countryRoute");
+const actorRoute = require("./routes/actorRoute")
 const userRoute = require("./routes/userRoute");
 const movieRoute = require("./routes/movieRoute");
 const cinemasRoute = require("./routes/cinemaRoute");
@@ -23,7 +23,7 @@ app.use(
   })
 );
 app.use("/movie", movieRoute);
-app.use("/country", countryRoute); // --- register a route
+app.use("/actor", actorRoute); // --- register a route
 app.use("/cinema", cinemasRoute);
 app.use("/api/auth", userRoute);
 
