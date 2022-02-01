@@ -1,14 +1,26 @@
 .movieContainer {
   display: flex;
 }
-.movieInfo {
-  flex-grow: 1;
+.movieLogo img {
+  height: 300px;
 }
-.input {
-  background-color: inherit;
-  border: none;
+.movieInfo {
+  text-align: center;
+}
+.movieTitle {
+  border-bottom: 1px solid white;
 }
 .mainInfo {
   display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid white;
+}
+.infoField {
+  display: flex;
   justify-content: space-between;
 }
+.movieDescription {
+  border-bottom: 1px solid white;
+}
+
+

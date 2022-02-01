@@ -20,27 +20,33 @@ const Movie = (props) => {
         <img src={movie.imageUrl} alt="MovieAvatar" />
       </div>
       <div className={style.movieInfo}>
-        <h2>{movie.title}</h2>
+          <h1 className={style.movieTitle}>{movie.title}</h1>
         <div className={style.mainInfo}>
-          <ul className={style.movieFields}>
-            <li className={style.Field}>
-              <input
-                type="text"
-                className={style.input}
-                value="desctiprion"
-                disabled
-              />
-            </li>
-            <li className={style.Field}>Genre</li>
-            <li className={style.Field}>Age restriction</li>
-          </ul>
-          <ul className={style.movieValues}>
-            <li className={style.fieldValue}>{movie.duration}</li>
-            <li className={style.fieldValue}>{movie.genre}</li>
-            <li className={style.fieldValue}>{movie.ageRestriction}</li>
-          </ul>
+            <div className={style.infoField}>
+                <p>Duration</p>
+                <p>{movie.duration}</p>
+            </div>
+            <div className={style.infoField}>
+                <p>Actors</p>
+                {/*!== 0  ? movie.actors : "Bred Pit"*/}
+                <p>{movie.actors}</p>
+            </div>
+            <div className={style.infoField}>
+                <p>Genre</p>
+                {/*!== 0 ? movie.genre : "horror, adventure"*/}
+                <p>{movie.genre}</p>
+            </div>
+            <div className={style.infoField}>
+                <p>Age Restriction</p>
+                {/*? movie.ageRestriction : "18+"*/}
+                <p>{movie.ageRestriction }</p>
+            </div>
         </div>
-        <div>Desription</div>
+          <div className={style.movieDescription}>
+              <h2>Description</h2>
+              {/*? movie.description : "Default Description"*/}
+              <p>{movie.description }</p>
+          </div>
       </div>
     </section>
   );
