@@ -1,6 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import style from "./Movie.module.css";
 
 const Movie = ({movie, isLoading}) => {
