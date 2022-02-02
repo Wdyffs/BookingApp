@@ -58,6 +58,7 @@ export const Movies = (props) => {
           <option className={style.timeItems}>14:30</option>
           <option className={style.timeItems}>15:00</option>
         </select>
+        <NavLink to="addMovie">Add Movie</NavLink>
       </div>
       <div className={style.movieList}>
         {currentMovies.map((movie) => (
@@ -69,6 +70,7 @@ export const Movies = (props) => {
         totalMovies={movies.length}
         paginate={paginate}
       />
+
     </section>
   );
 };

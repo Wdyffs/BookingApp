@@ -4,18 +4,24 @@ import { Route, Routes } from "react-router-dom";
 import { AuthPage } from "./components/AuthPage/AuthPage";
 import { MainPage } from "./components/MainPage/MainPage";
 import { Movies } from "./components/MainPage/Content/Movies/Movies";
-import Movie from "./components/MainPage/Content/Movies/Movie/Movie";
 import { Theatres } from "./components/MainPage/Content/Theatres/Theatres";
 import { LoginPage } from "./components/AuthPage/LoginPage/LoginPage";
 import { RegisterPage } from "./components/AuthPage/RegisterPage/RegisterPage";
+import AddMovie from "./components/MainPage/Content/Movies/AddMovie";
+import MovieWrapper from "./components/MainPage/Content/Movies/Movie/MovieWrapper";
+
+
 
 function App() {
+
+  //? Add get request to user/me
   return (
     <div className="container">
       <Routes>
         <Route path="/" element={<MainPage />}>
           <Route index element={<Movies />} />
-          <Route path="movie/:title" element={<Movie />} />
+          <Route path="addMovie" element={<AddMovie />} />
+          <Route path="movie/:title" element={<MovieWrapper />} />
           <Route path="theatres" element={<Theatres />} />
         </Route>
         <Route path="/auth/" element={<AuthPage />}>

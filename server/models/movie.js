@@ -9,6 +9,10 @@ const movieSchema = new Schema({
   cinemas: [{ type: Schema.Types.ObjectId, ref: "Cinemas" }],
   actors: [{ type: Schema.Types.ObjectId, ref: "Actors" }],
   genre: [{ type: Schema.Types.ObjectId, ref: "Genres" }],
+  ageRestriction: {
+    type: String,
+    default: '12+'
+  }
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

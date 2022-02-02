@@ -3,9 +3,10 @@ const actorService = require("../services/actor-sevice")
 class actorController {
     async getActors(req, res) {
         try {
-
+            const actors = await actorService.getActors();
+            res.status(200).json({actors})
         } catch (e) {
-
+            res.status(500).json({message: "Cant get actors"})
         }
     }
     async createActor(req, res) {

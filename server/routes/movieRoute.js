@@ -12,7 +12,13 @@ router.post("/sendmovie", async (req, res) => {
       cinemas = [],
       actors = [],
       genre = [],
+      ageRestriction
     } = req.body;
+    const candidate = await Movie.findOne({title})
+    if(candidate) {
+      res.status(500).json({message: "There is already exists this movie"})
+    }
+
     const movie = new Movie({
       title,
       imageUrl,
@@ -21,6 +27,7 @@ router.post("/sendmovie", async (req, res) => {
       cinemas,
       actors,
       genre,
+      ageRestriction
     });
     await movie.save();
     res
@@ -32,7 +39,7 @@ router.post("/sendmovie", async (req, res) => {
 });
 router.get("/movies", async (req, res) => {
   try {
-    const movies = await Movie.find();
+    const movies = await Movie.find()
     res.json(movies);
   } catch (e) {
     res.status(500).json({ message: e.message });
@@ -41,7 +48,7 @@ router.get("/movies", async (req, res) => {
 router.get("/movie/:title", async (req, res) => {
   try {
     const title = req.params.title;
-    const movie = await Movie.findOne({ title: title });
+    const movie = await Movie.findOne({ title: title }).populate('actors');
     res.status(200).json({ message: "Find successfully", movie: movie });
   } catch (e) {
     res.status(500).json({ message: e.message });

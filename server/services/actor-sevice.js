@@ -12,6 +12,10 @@ class actorService {
         });
         return actor;
     }
+    async getActors() {
+        const actors = ActorModel.find();
+        return actors
+    }
 }
 
 module.exports = new actorService();
