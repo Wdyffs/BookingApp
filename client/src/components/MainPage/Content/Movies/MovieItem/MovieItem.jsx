@@ -5,7 +5,7 @@ import style from "./MovieItem.module.css";
 const MovieItem = (props) => {
   return (
     <div>
-      <Link to={`movie/${props.movie.title}`} className={style.movieLink}>
+      <Link to={`movie/${props.movie._id}`} className={style.movieLink}>
         <img
           src={props.movie.imageUrl}
           className={style.movieImage}

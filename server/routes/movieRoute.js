@@ -45,10 +45,10 @@ router.get("/movies", async (req, res) => {
     res.status(500).json({ message: e.message });
   }
 });
-router.get("/movie/:title", async (req, res) => {
+router.get("/movie/:id", async (req, res) => {
   try {
-    const title = req.params.title;
-    const movie = await Movie.findOne({ title: title }).populate('actors');
+    const id = req.params.id;
+    const movie = await Movie.findOne({ _id: id }).populate('actors');
     res.status(200).json({ message: "Find successfully", movie: movie });
   } catch (e) {
     res.status(500).json({ message: e.message });

@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<MainPage />}>
           <Route index element={<Movies />} />
           <Route path="addMovie" element={<AddMovie />} />
-          <Route path="movie/:title" element={<MovieWrapper />} />
+          <Route path="movie/:id" element={<MovieWrapper />} />
           <Route path="theatres" element={<Theatres />} />
         </Route>
         <Route path="/auth/" element={<AuthPage />}>
