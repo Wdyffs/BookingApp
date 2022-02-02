@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import style from "./Movies.module.css";
-import axios from "axios";
 import Pagination from "./Pagination";
-import { fetchMovies } from "../../../../asyncActions/getMovies";
 import MovieItem from "./MovieItem/MovieItem";
+import movie from "./Movie/Movie";
 
-export const Movies = (props) => {
-  const dispatch = useDispatch();
-  const movieList = useSelector((state) => state.movies.movies);
-  const [movies, setMovies] = useState(movieList);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [moviesPerPage] = useState(8);
-
-  useEffect(() => setMovies(movieList), [movieList]);
-  useEffect(() => dispatch(fetchMovies()), []);
-
-  const lastMovieIndex = currentPage * moviesPerPage;
-  const firstMovieIndex = lastMovieIndex - moviesPerPage;
-  const currentMovies = movies.slice(firstMovieIndex, lastMovieIndex);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+export const Movies = ({currentMovies, moviesPerPage, paginate, movies}) => {
   return (
     <section className={style.moviesContainer}>
-      <div></div>
+      <div>{console.log(movies.length)}</div>
       <h2 className={style.movieTitle}>Movies</h2>
       <div className={style.sortList}>
         <select className={style.selectItems}>
@@ -70,7 +53,6 @@ export const Movies = (props) => {
         totalMovies={movies.length}
         paginate={paginate}
       />
-
     </section>
   );
 };
