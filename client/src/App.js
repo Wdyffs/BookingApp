@@ -3,13 +3,12 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { AuthPage } from "./components/AuthPage/AuthPage";
 import { MainPage } from "./components/MainPage/MainPage";
-import { Movies } from "./components/MainPage/Content/Movies/Movies";
 import { Theatres } from "./components/MainPage/Content/Theatres/Theatres";
 import { LoginPage } from "./components/AuthPage/LoginPage/LoginPage";
 import { RegisterPage } from "./components/AuthPage/RegisterPage/RegisterPage";
-import AddMovie from "./components/MainPage/Content/Movies/AddMovie/AddMovie";
 import MovieWrapper from "./components/MainPage/Content/Movies/Movie/MovieWrapper";
 import {MoviesWrapper} from "./components/MainPage/Content/Movies/MoviesWrapper";
+import AddMovieWrapper from "./components/MainPage/Content/Movies/AddMovie/AddMovieWrapper";
 
 
 
@@ -21,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}>
           <Route index element={<MoviesWrapper />} />
-          <Route path="addMovie" element={<AddMovie />} />
+          <Route path="addMovie" element={<AddMovieWrapper />} />
           <Route path="movie/:id" element={<MovieWrapper />} />
           <Route path="theatres" element={<Theatres />} />
         </Route>
