@@ -7,6 +7,15 @@
     color: black;
     font-size: 20px;
 }
+.genresList {
+    min-width: 300px;
+    min-height: 50px;
+    color: black;
+}
+.genresList option {
+    color: black;
+    font-size: 20px;
+}
 .fieldTitle,
 .fieldDuration,
 .fieldImageUrl,

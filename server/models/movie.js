@@ -8,7 +8,7 @@ const movieSchema = new Schema({
   description: { type: String, required: true },
   cinemas: [{ type: Schema.Types.ObjectId, ref: "Cinemas" }],
   actors: [{ type: Schema.Types.ObjectId, ref: "Actors" }],
-  genre: [{ type: Schema.Types.ObjectId, ref: "Genres" }],
+  genre: [{ type: Schema.Types.ObjectId, ref: "Genre" }],
   ageRestriction: {
     type: String,
     default: '12+'

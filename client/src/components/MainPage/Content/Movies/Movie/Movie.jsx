@@ -24,7 +24,7 @@ const Movie = ({movie, isLoading}) => {
                       </div>
                       <div className={style.infoField}>
                           <p>Genre</p>
-                          <p>{movie.genre}</p>
+                          <p>{movie.genre.map(g => <span key={g._id}>{`${g.name}, `}</span>)}</p>
                       </div>
                       <div className={style.infoField}>
                           <p>Age Restriction</p>

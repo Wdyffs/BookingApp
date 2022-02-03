@@ -9,6 +9,7 @@ const actorRoute = require("./routes/actorRoute")
 const userRoute = require("./routes/userRoute");
 const movieRoute = require("./routes/movieRoute");
 const cinemasRoute = require("./routes/cinemaRoute");
+const genreRoute = require("./routes/genreRoute")
 
 const PORT = process.env.PORT || 3000;
 
@@ -22,6 +23,7 @@ app.use(
     credentials: true,
   })
 );
+app.use("/genre", genreRoute);
 app.use("/movie", movieRoute);
 app.use("/actor", actorRoute); // --- register a route
 app.use("/cinema", cinemasRoute);
