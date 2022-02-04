@@ -8,7 +8,6 @@ import movie from "./Movie/Movie";
 export const Movies = ({currentMovies, moviesPerPage, paginate, movies}) => {
   return (
     <section className={style.moviesContainer}>
-      <div>{console.log(movies.length)}</div>
       <h2 className={style.movieTitle}>Movies</h2>
       <div className={style.sortList}>
         <select className={style.selectItems}>
