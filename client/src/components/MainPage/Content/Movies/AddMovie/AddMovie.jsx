@@ -11,6 +11,7 @@ const AddMovie = ({addMovie, actors, genres}) => {
     const [imageUrl, setImageUrl] = useState('');
     const [duration, setDuration] = useState('');
     const [description, setDescription] = useState('');
+    const [ageRestriction, setAgeRestriction] = useState('')
 
     const selectActors = useRef(null)
 
@@ -28,18 +29,19 @@ const AddMovie = ({addMovie, actors, genres}) => {
     }
 
     return (
-        <form>
-            <p>
+        <form className={style.movieCreatingForm}>
+            <p className={style.inputField}>
+                <label htmlFor="title">Title</label>
                 <input type="text" name="title" className={style.fieldTitle}
                        onChange={(e) => setTitle(e.target.value)}/>
-                <label htmlFor="title">Title</label>
             </p>
-            <p>
+            <p className={style.inputField}>
+                <label htmlFor="duration">Duration</label>
                 <input type="text" name="duration" className={style.fieldDuration}
                        onChange={(e) => setDuration(e.target.value)}/>
-                <label htmlFor="duration">Duration</label>
             </p>
-            <p>
+            <p className={style.inputField}>
+                <label htmlFor="actors[]">Image URL</label>
                 <select name="actors[]" id="actors" multiple="multiple" className={style.actorsList}
                         ref={selectActors} onChange={() => chooseSelectedActors()}>
                     {actors.map((actor) => {
@@ -48,7 +50,8 @@ const AddMovie = ({addMovie, actors, genres}) => {
                     })}
                 </select>
             </p>
-            <p>
+            <p className={style.inputField}>
+                <label htmlFor="genres[]">Image URL</label>
                 <select name="genres[]" id="genres" multiple="multiple" className={style.genresList}
                         onChange={e => chooseSelectedGenres(e)}>
                     {genres.map((genre) => {
@@ -56,15 +59,28 @@ const AddMovie = ({addMovie, actors, genres}) => {
                     })}
                 </select>
             </p>
-            <p>
+            <p className={style.inputField}>
+                <label htmlFor="imageUrl">Image URL</label>
                 <input type="text" name="ImageUrl" className={style.fieldImageUrl}
                        onChange={(e) => setImageUrl(e.target.value)}/>
-                <label htmlFor="imageUrl">Image URL</label>
             </p>
-            <p>
+            <p className={style.inputField}>
+                <label htmlFor="description">Description</label>
                 <textarea name="description" className={style.fieldDescription}
                           onChange={(e) => setDescription(e.target.value)}/>
-                <label htmlFor="description">Description</label>
+            </p>
+            <p className={style.inputField}>
+                <label htmlFor="ageRestriction">Age Restriction</label>
+                <select name="ageRestriction" id="ageRestriction"  className={style.ageRestriction}
+                        onChange={e => setAgeRestriction(e.target.value)}>
+                    <option value="0+">0+</option>
+                    <option value="6+">6+</option>
+                    <option value="12+">12+</option>
+                    <option value="14+">14+</option>
+                    <option value="16+">16+</option>
+                    <option value="18+">18+</option>
+                    <option value="21+">21+</option>
+                </select>
             </p>
 
             <button type="button" className={style.addMovie}
