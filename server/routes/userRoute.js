@@ -3,6 +3,7 @@ const User = require("../models/user");
 const Role = require("../models/role");
 const userController = require("../controllers/userController");
 const jwt = require("jsonwebtoken");
+require("dotenv").config()
 const router = express.Router();
 // const roleMiddleware = require("../middleware/roleMiddleware");
 

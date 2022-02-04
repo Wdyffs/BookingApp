@@ -9,24 +9,16 @@ import { RegisterPage } from "./components/AuthPage/RegisterPage/RegisterPage";
 import MovieWrapper from "./components/MainPage/Content/Movies/Movie/MovieWrapper";
 import {MoviesWrapper} from "./components/MainPage/Content/Movies/MoviesWrapper";
 import AddMovieWrapper from "./components/MainPage/Content/Movies/AddMovie/AddMovieWrapper";
-import axios from "axios";
 import {useDispatch} from "react-redux";
-import {setAuth, setUser} from "./redux/AuthReducer";
+import {authUser} from "./asyncActions/authUser";
 
 
 
 function App() {
   const dispatch = useDispatch();
-  //? Add get request to user/me
+
   useEffect(() => {
-    axios.get("http://localhost:5000/api/auth/me", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    }).then(res => {
-      dispatch(setUser(res.data.user));
-      dispatch((setAuth(true)))
-    })
+    dispatch(authUser());
   }, [])
   return (
     <div className="container">
