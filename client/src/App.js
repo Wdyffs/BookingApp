@@ -18,7 +18,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authUser());
+    if (localStorage.getItem('token')) {
+      dispatch(authUser());
+      console.log('dispatching user')
+    }
   }, [])
   return (
     <div className="container">

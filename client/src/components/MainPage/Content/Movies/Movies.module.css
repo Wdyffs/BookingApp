@@ -41,6 +41,6 @@
   row-gap: 50px;
   /* column-gap: 70px; */
 }
-Pagination {
+.pagination {
   grid-area: pagination;
 }

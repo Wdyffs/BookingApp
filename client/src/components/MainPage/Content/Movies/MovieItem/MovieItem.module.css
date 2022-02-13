@@ -1,3 +1,7 @@
+.movieItemContainer {
+  display: flex;
+  column-gap: 10px;
+}
 .movieImage {
   width: 230px;
   height: 350px;
@@ -6,7 +10,15 @@
   text-align: center;
 }
 .movieLink {
-  dispaly: block;
+  dispalay: block;
   height: 100%;
   list-style: none;
+}
+.deleteButton {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: white;
+  background-color: #cb4747;
+  border: none;
 }

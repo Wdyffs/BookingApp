@@ -8,9 +8,10 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
   }
   return (
     <ul className={style.paginationList}>
-      {pages.map((pageNumber) => (
+      {pages.map((pageNumber, index) => (
         <button
           type="button"
+          key={index}
           className={style.paginationItem}
           onClick={() => paginate(pageNumber)}
         >

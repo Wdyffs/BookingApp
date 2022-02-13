@@ -3,9 +3,8 @@ import { NavLink } from "react-router-dom";
 import style from "./Movies.module.css";
 import Pagination from "./Pagination";
 import MovieItem from "./MovieItem/MovieItem";
-import movie from "./Movie/Movie";
 
-export const Movies = ({currentMovies, moviesPerPage, paginate, movies}) => {
+export const Movies = ({currentMovies, moviesPerPage, paginate, movies, deleteMovie}) => {
   return (
     <section className={style.moviesContainer}>
       <h2 className={style.movieTitle}>Movies</h2>
@@ -44,14 +43,17 @@ export const Movies = ({currentMovies, moviesPerPage, paginate, movies}) => {
       </div>
       <div className={style.movieList}>
         {currentMovies.map((movie) => (
-          <MovieItem movie={movie} />
+          <MovieItem movie={movie} key={movie._id} deleteMovie={deleteMovie}/>
         ))}
       </div>
-      <Pagination
-        moviesPerPage={moviesPerPage}
-        totalMovies={movies.length}
-        paginate={paginate}
-      />
+      <div className={style.pagination}>
+        <Pagination
+            moviesPerPage={moviesPerPage}
+            totalMovies={movies.length}
+            paginate={paginate}
+        />
+      </div>
+
     </section>
   );
 };

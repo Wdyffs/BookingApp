@@ -1,5 +1,6 @@
 const express = require("express");
 const Movie = require("../models/movie");
+const movieController = require("../controllers/movieController")
 const router = express.Router();
 
 router.post("/sendmovie", async (req, res) => {
@@ -54,5 +55,5 @@ router.get("/movie/:id", async (req, res) => {
     res.status(500).json({ message: e.message });
   }
 });
-
+router.delete("/deleteMovie/:id", movieController.deleteMovie)
 module.exports = router;

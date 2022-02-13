@@ -1,18 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./MovieItem.module.css";
+import {useDispatch} from "react-redux";
+import {deleteMovie} from "../../../../../redux/moviesReducer";
 
-const MovieItem = (props) => {
+const MovieItem = ({movie, deleteMovie}) => {
+    const dispatch = useDispatch();
+    const deleteMov = () => {
+        dispatch(deleteMovie(movie));
+    }
+
+
   return (
-    <div>
-      <Link to={`movie/${props.movie._id}`} className={style.movieLink}>
+    <div className={style.movieItemContainer}>
+      <Link to={`movie/${movie._id}`} className={style.movieLink}>
         <img
-          src={props.movie.imageUrl}
+          src={movie.imageUrl}
           className={style.movieImage}
-          alt={`${props.movie.title} avatar`}
+          alt={`${movie.title} avatar`}
         />
-        <h3 className={style.movieTitle}>{props.movie.title}</h3>
+        <h3 className={style.movieTitle}>{movie.title}</h3>
       </Link>
+        <button type="button"
+                className={style.deleteButton}
+                onClick={() => deleteMovie(movie)}>-</button>
     </div>
   );
 };
