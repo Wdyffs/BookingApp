@@ -39,7 +39,9 @@ export const Movies = ({currentMovies, moviesPerPage, paginate, movies, deleteMo
           <option className={style.timeItems}>14:30</option>
           <option className={style.timeItems}>15:00</option>
         </select>
-        <NavLink to="addMovie">Add Movie</NavLink>
+        <NavLink to="addMovie" className={style.addMovie}>
+          <button type="button" className={style.addMovieBtn}>Add Movie</button>
+        </NavLink>
       </div>
       <div className={style.movieList}>
         {currentMovies.map((movie) => (

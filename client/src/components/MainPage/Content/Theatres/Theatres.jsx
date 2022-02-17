@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import style from "./Theatres.module.css";
-import { fetchCinemas } from "../../../../asyncActions/getCinemas";
 
-export const Theatres = (props) => {
-  const dispatch = useDispatch();
-  const cinemaList = useSelector((state) => state.cinemas.cinemas);
-  const [cinemas, setCinemas] = useState(cinemaList);
-
-  useEffect(() => setCinemas(cinemaList), [cinemaList]);
-  useEffect(() => dispatch(fetchCinemas()), []);
-
+export const Theatres = ({cinemas}) => {
   return (
     <section className={style.theatresContainer}>
       <h2 className={style.theatreTitle}>Movies</h2>

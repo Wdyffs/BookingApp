@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { AuthPage } from "./components/AuthPage/AuthPage";
 import { MainPage } from "./components/MainPage/MainPage";
-import { Theatres } from "./components/MainPage/Content/Theatres/Theatres";
 import { LoginPage } from "./components/AuthPage/LoginPage/LoginPage";
 import { RegisterPage } from "./components/AuthPage/RegisterPage/RegisterPage";
 import MovieWrapper from "./components/MainPage/Content/Movies/Movie/MovieWrapper";
@@ -11,6 +10,7 @@ import {MoviesWrapper} from "./components/MainPage/Content/Movies/MoviesWrapper"
 import AddMovieWrapper from "./components/MainPage/Content/Movies/AddMovie/AddMovieWrapper";
 import {useDispatch} from "react-redux";
 import {authUser} from "./asyncActions/authUser";
+import {TheatresWrapper} from "./components/MainPage/Content/Theatres/TheatresWrapper";
 
 
 
@@ -30,7 +30,7 @@ function App() {
           <Route index element={<MoviesWrapper />} />
           <Route path="addMovie" element={<AddMovieWrapper />} />
           <Route path="movie/:id" element={<MovieWrapper />} />
-          <Route path="theatres" element={<Theatres />} />
+          <Route path="theatres" element={<TheatresWrapper />} />
         </Route>
         <Route path="/auth/" element={<AuthPage />}>
           <Route index element={<LoginPage />} />

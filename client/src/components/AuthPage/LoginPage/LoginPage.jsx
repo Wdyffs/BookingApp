@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./LoginPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAuth, setUser } from "../../../redux/AuthReducer";
@@ -8,8 +8,10 @@ import { setAuth, setUser } from "../../../redux/AuthReducer";
 export const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  const redirectHome = () => navigate('/')
 
   const loginUser = (email, password) => {
     axios
@@ -18,6 +20,7 @@ export const LoginPage = (props) => {
         localStorage.setItem("token", res.data.token);
         dispatch(setAuth(true));
         dispatch(setUser(res.data.user));
+        redirectHome();
       })
       .catch((e) => console.log(e.res.data.message));
   };

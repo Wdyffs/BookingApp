@@ -44,3 +44,13 @@
 .pagination {
   grid-area: pagination;
 }
+.addMovie {
+  height: 23px;
+}
+.addMovieBtn {
+  min-width: auto;
+  font-size: 20px;
+  padding: 5px;
+  background-color: #898193;
+  border: 1px solid #cccaca;
+}
