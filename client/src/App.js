@@ -11,6 +11,7 @@ import AddMovieWrapper from "./components/MainPage/Content/Movies/AddMovie/AddMo
 import {useDispatch} from "react-redux";
 import {authUser} from "./asyncActions/authUser";
 import {TheatresWrapper} from "./components/MainPage/Content/Theatres/TheatresWrapper";
+import Theatre from "./components/MainPage/Content/Theatres/Theatre/Theatre";
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="addMovie" element={<AddMovieWrapper />} />
           <Route path="movie/:id" element={<MovieWrapper />} />
           <Route path="theatres" element={<TheatresWrapper />} />
+          <Route path="theatre/:id" element={<Theatre />} />
         </Route>
         <Route path="/auth/" element={<AuthPage />}>
           <Route index element={<LoginPage />} />

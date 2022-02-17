@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./Theatres.module.css";
+import TheatreItem from "./TheatreItem/TheatreItem";
 
 export const Theatres = ({cinemas}) => {
   return (
@@ -27,18 +28,7 @@ export const Theatres = ({cinemas}) => {
         </select>
       </div>
       <div className={style.theatreList}>
-        {cinemas.map((cinema) => (
-          <div className={style.theatreItem}>
-            <a href="1">
-              <img
-                className={style.theatre}
-                src={cinema.imageUrl}
-                alt="Falcon Club"
-              />
-            </a>
-            <h3>{cinema.name}</h3>
-          </div>
-        ))}
+        {cinemas.map((cinema) => <TheatreItem cinema={cinema} key={cinema._id}/>)}
       </div>
     </section>
   );
