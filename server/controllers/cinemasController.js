@@ -3,8 +3,8 @@ const cinemaService = require("../services/cinema-service");
 class cinemasController {
   async createCinema(req, res, next) {
     try {
-      const { name, imageUrl, address, movies, halls } = req.body;
-      const cinema = await cinemaService.createCinema(name, imageUrl, address);
+      const { name, imageUrl, city, address, movies, halls, seats } = req.body;
+      const cinema = await cinemaService.createCinema(name, imageUrl, city, address, movies, halls, seats);
       res
         .status(201)
         .json({ message: "Cinema was created successfully", cinema: cinema });

@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Theatres.module.css";
 import TheatreItem from "./TheatreItem/TheatreItem";
+import {NavLink} from "react-router-dom";
 
 export const Theatres = ({cinemas}) => {
   return (
@@ -26,6 +27,9 @@ export const Theatres = ({cinemas}) => {
           <option className={style.timeItems}>Belarus</option>
           <option className={style.timeItems}>Mir</option>
         </select>
+        <NavLink to="cinema/addCinema" className={style.addMovie}>
+          <button type="button" className={style.addMovieBtn}>Add Cinema</button>
+        </NavLink>
       </div>
       <div className={style.theatreList}>
         {cinemas.map((cinema) => <TheatreItem cinema={cinema} key={cinema._id}/>)}

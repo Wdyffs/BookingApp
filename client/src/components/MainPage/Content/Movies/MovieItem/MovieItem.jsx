@@ -13,7 +13,7 @@ const MovieItem = ({movie, deleteMovie}) => {
 
   return (
     <div className={style.movieItemContainer}>
-      <Link to={`movie/${movie._id}`} className={style.movieLink}>
+      <Link to={`movies/${movie._id}`} className={style.movieLink}>
         <img
           src={movie.imageUrl}
           className={style.movieImage}

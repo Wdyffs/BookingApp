@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const TheatreItem = ({cinema}) => {
     return (
         <div className={style.theatreItem}>
-            <Link to={`/theatre/${cinema._id}`}>
+            <Link to={`/theatres/${cinema._id}`}>
                 <img
                     className={style.theatre}
                     src={cinema.imageUrl}

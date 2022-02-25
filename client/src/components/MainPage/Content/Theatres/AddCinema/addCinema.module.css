@@ -1,0 +1,64 @@
+.movieCreatingForm {
+    margin: 20px 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.inputField {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.inputField label {
+    width: 80px;
+}
+.citiesList,
+.moviesList {
+    min-width: 200px;
+    min-height: 40px;
+    color: white;
+    background-color: #576080;
+    font-size: 20px;
+}
+.citiesList option ,
+.moviesList option {
+    color: white;
+    font-size: 20px;
+    background-color: #576080;
+    border: 2px solid #888888;
+    padding: 3px;
+}
+.fieldName,
+.fieldAddress,
+.seats,
+.fieldImageUrl {
+    height: 30px;
+    min-width: 200px;
+    background-color: #576080;
+    border: 2px solid #888888;
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+}
+.addCinema {
+    width: 200px;
+    padding: 3px;
+    font-size: 20px;
+    background-color: #576080;
+    border: 2px solid #888888;
+    color: white;
+}
+.halls {
+    min-width: 50px;
+    min-height: 40px;
+    background-color: #576080;
+    border: 2px solid #888888;
+    color: white;
+    font-size: 17px;
+}
+.halls option {
+    background-color: #576080;
+    border: 2px solid #888888;
+    color: white;
+    font-size: 17px;
+}

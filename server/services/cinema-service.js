@@ -1,7 +1,7 @@
 const CinemaModel = require("../models/cinema");
 
 class cinemaService {
-  async createCinema(name, imageUrl, address, movies = [], halls = []) {
+  async createCinema(name, imageUrl, city, address, movies = [], halls = [], seats) {
     const candidate = await CinemaModel.findOne({ name });
     if (candidate) {
       throw new Error(`Cinema with ${name} name does exists`);
@@ -9,9 +9,11 @@ class cinemaService {
     const cinema = await CinemaModel.create({
       name,
       imageUrl,
+      city,
       address,
       movies,
       halls,
+      seats
     });
     return cinema;
   }
@@ -20,7 +22,7 @@ class cinemaService {
   }
   async getCinemas() {
     try {
-      const cinemas = await CinemaModel.find();
+      const cinemas = await CinemaModel.find().populate("movies");
       return cinemas;
     } catch (e) {
       return e.message;

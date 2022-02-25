@@ -34,4 +34,10 @@
   row-gap: 30px;
   column-gap: 20px;
 }
-
+.addMovieBtn {
+  min-width: auto;
+  font-size: 15px;
+  padding: 5px;
+  background-color: #898193;
+  border: 1px solid #cccaca;
+}
