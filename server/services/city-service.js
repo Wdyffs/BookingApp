@@ -15,6 +15,12 @@ class CityService {
         const city = await CityModel.create({name});
         return city;
     }
+
+    async updateCinemasList(cityId, cinemaId) {
+        const city = await CityModel.findOne({_id: cityId});
+        city.cinemas.push(cinemaId);
+        await CityModel.findOneAndUpdate({_id: cityId}, {cinemas: city.cinemas});
+    }
 }
 
 module.exports = new CityService();

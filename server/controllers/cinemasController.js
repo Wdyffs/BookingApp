@@ -1,11 +1,13 @@
 const cinemaService = require("../services/cinema-service");
 const movieService = require("../services/movieService");
+const cityService = require("../services/city-service")
 
 class cinemasController {
   async createCinema(req, res, next) {
     try {
       const { name, imageUrl, city, address, movies, halls, seats } = req.body;
       const cinema = await cinemaService.createCinema(name, imageUrl, city, address, movies, halls, seats);
+      await cityService.updateCinemasList(city, cinema._id);
       await movieService.updateMovie(cinema._id, movies);
       res
         .status(201)
