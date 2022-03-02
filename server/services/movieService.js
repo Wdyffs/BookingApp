@@ -8,6 +8,13 @@ class movieService {
         }
        await MovieModel.deleteOne({_id: id});
     }
+    async updateMovie(cinemaId, movies) {
+       for (const m of movies) {
+            const movie = await MovieModel.findOne({_id: m._id});
+            movie.cinemas.push(cinemaId);
+            await MovieModel.findOneAndUpdate({_id: m._id}, {cinemas: movie.cinemas});
+        }
+    }
 }
 
 module.exports = new movieService()
