@@ -7,3 +7,7 @@
   width: 40px;
   height: 40px;
 }
+.logout:hover {
+  color: #576080;
+  cursor: pointer;
+}

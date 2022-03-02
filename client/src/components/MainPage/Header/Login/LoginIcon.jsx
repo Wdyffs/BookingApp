@@ -15,7 +15,7 @@ export const LoginIcon = () => {
     <div className={style.login}>
       <img src="/images/LoginPicture.svg" alt="Login" />
       {isAuth ? (
-        <span onClick={() => onLogoutClick()}>Logout</span>
+        <span onClick={() => onLogoutClick()} className={style.logout}>Logout</span>
       ) : (
         <NavLink to="auth">Sign in</NavLink>
       )}
