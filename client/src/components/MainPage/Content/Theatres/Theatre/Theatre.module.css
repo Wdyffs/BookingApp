@@ -1,3 +1,23 @@
-.cinemaImage {
-    width: 300px;
+.cinemaContainer {
+    display: flex;
+}
+.cinemaImage img {
+    height: 300px;
+}
+.cinemaInfo {
+    text-align: center;
+    flex-grow: 1;
+    padding: 0 50px 0 50px;
+}
+.cinemaName {
+    border-bottom: 1px solid white;
+}
+.mainInfo {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid white;
+}
+.infoField {
+    display: flex;
+    justify-content: space-between;
 }

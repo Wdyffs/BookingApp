@@ -22,7 +22,9 @@ class cinemaService {
   }
   async getCinemas() {
     try {
-      const cinemas = await CinemaModel.find().populate("movies");
+      const cinemas = await CinemaModel.find()
+          .populate("movies")
+          .populate('city');
       return cinemas;
     } catch (e) {
       return e.message;
