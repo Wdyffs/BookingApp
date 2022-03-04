@@ -23,8 +23,20 @@ class cinemasController {
     try {
       const cinemas = await cinemaService.getCinemas();
       res.status(200).json({ cinemas: cinemas });
+      next();
     } catch (e) {
       res.status(500);
+    }
+  }
+
+  async deleteCinema(req, res, next) {
+    try {
+      const {id} = req.params;
+      await cinemaService.deleteCinema(id);
+      res.status(200).json({message: "Cinema successfull deleted!!!"})
+      next();
+    } catch (e) {
+      res.status(500).json({errorMessage: ``})
     }
   }
 }

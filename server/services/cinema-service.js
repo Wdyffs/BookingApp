@@ -30,5 +30,9 @@ class cinemaService {
       return e.message;
     }
   }
+
+  async deleteCinema(id) {
+     await CinemaModel.deleteOne({_id: id});
+  }
 }
 module.exports = new cinemaService();

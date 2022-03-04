@@ -1,3 +1,24 @@
-.theatre {
-    max-width: 300px;
+.cinemaItemContainer {
+    display: flex;
+    column-gap: 10px;
+}
+.cinemaImage {
+    width: 300px;
+    height: 250px;
+}
+.cinemaName {
+    text-align: center;
+}
+.cinemaLink {
+    dispalay: block;
+    height: 100%;
+    list-style: none;
+}
+.deleteCinemaBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #cb4747;
+    border: none;
 }
